@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
-import List from 'material-ui/List';
+//import List from 'material-ui/List';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
-import ChevronRightIcon from 'material-ui-icons/ChevronRight';
+import Button from 'material-ui/Button';
+import Grid from 'material-ui/Grid';
+//import ChevronRightIcon from 'material-ui-icons/ChevronRight';
 
 const drawerWidth = 240;
 
@@ -45,7 +47,7 @@ const styles = theme => ({
     }),
   },
   menuButton: {
-    marginLeft: 12,
+    marginLeft: "-87.5%",
     marginRight: 20,
   },
   hide: {
@@ -89,6 +91,13 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  loginButton: {
+    marginLeft: "80%",
+    width: 50
+  },
+  appBarItems: {
+    margin: '1%'
+  }
 });
 
 
@@ -114,17 +123,26 @@ class Menu extends Component
         <div className={classes.appFrame}>
           <AppBar className={classNames(classes.appBar, this.state.open && classes.appBarShift)}>
             <Toolbar disableGutters={!this.state.open}>
-              <IconButton
-                color="contrast"
-                aria-label="open drawer"
-                onClick={this.handleDrawerOpen}
-                className={classNames(classes.menuButton, this.state.open && classes.hide)}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography type="title" color="inherit" noWrap>
-                Application
-              </Typography>
+              <Grid container spacing={25} >
+                  <Grid item xs >
+                      <IconButton
+                      color="contrast"
+                      aria-label="open drawer"
+                      onClick={this.handleDrawerOpen}
+                      className={classNames(classes.menuButton, this.state.open && classes.hide)}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </Grid>
+                  <Grid item xs>
+                    <Typography type="title" color="inherit" noWrap className={classes.appBarItems} >
+                      Application
+                    </Typography>
+                  </Grid>
+                  <Grid item xs>
+                    <Button className={classNames(classes.loginButton, classes.appBarItems)} color="contrast">Login</Button>
+                  </Grid>
+              </Grid>
             </Toolbar>
           </AppBar>
           <Drawer
@@ -137,7 +155,10 @@ class Menu extends Component
             <div className={classes.drawerInner}>
               <div className={classes.drawerHeader}>
                 <IconButton onClick={this.handleDrawerClose}>
-                  {/*theme.direction === 'rtl' ? */<ChevronLeftIcon /> /*: <ChevronLeftIcon />*/}
+                  {/* 
+                    
+                    TODO 
+                    theme.direction === 'rtl' ? */<ChevronLeftIcon /> /*: <ChevronLeftIcon />*/}
                 </IconButton>
               </div>
               <Divider />

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import '../style/App.css';
-import Menu from './menu/Menu';
+//import Menu from './menu/Menu';
+import Nav from './menu/Nav';
 
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import { red, blue, yellow } from 'material-ui/colors';
@@ -12,8 +13,7 @@ import { red, blue, yellow } from 'material-ui/colors';
  * GLOBAL APPLICATION THEME!
  * 
 */
-const theme = createMuiTheme
-({
+const theme = createMuiTheme({
   palette: 
   {
     primary: blue,
@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
-          <Menu/>
+          <Nav/>
         </div>
       </MuiThemeProvider>
     );
