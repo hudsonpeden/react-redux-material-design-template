@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
+//import TextField from 'material-ui/TextField';
 import Dialog, {
   DialogActions,
   DialogContent,
@@ -18,37 +18,20 @@ class Login extends Component {
         open: true
     }
 
-    handleRequestOpen = () => {
-        this.setState({open: true});
-    }
-
-    handleRequestClose = () => {
-        this.setState({open: false});
-    }
     render() {
         return(
             <div>
-                <Dialog open={this.state.open} onRequestClose={this.handleRequestClose}>
+                <Dialog 
+                    open={this.state.open} 
+                    onRequestClose={this.handleRequestClose}
+                    ignoreBackdropClick={true} >
                     <DialogTitle>Login</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            Please login to access the system.
+                            Please login to access the application.
                         </DialogContentText>
-                        <TextField 
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
-                            fullWidth
-                        />
                     </DialogContent>
-                    
-        {/*
-                TODO 
-        */}
                     <DialogActions>
-                        <Button onClick={this.handleRequestClose} color="primary">Cancel</Button>
                         <Button onClick={this.props.userLogin} color="primary">Login</Button>
                     </DialogActions>
                 </Dialog>

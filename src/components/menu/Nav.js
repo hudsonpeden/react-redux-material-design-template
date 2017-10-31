@@ -102,7 +102,7 @@ const styles = theme => ({
 class Nav extends Component {
 
     state = {
-        open: false,
+        open: true,
     };
 
     handleDrawerOpen = () => {

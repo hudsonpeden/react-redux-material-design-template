@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import  { userLogout }  from '../../actions/index';
 
 import { withStyles } from 'material-ui/styles';
 import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Collapse from 'material-ui/transitions/Collapse';
+import Divider from 'material-ui/Divider';
 
 //Icons
 import Dashboard from 'material-ui-icons/Dashboard';
@@ -35,8 +39,11 @@ class NavList extends Component {
 
         return(
             <List className={classes.root}
-                  subheader={<ListSubheader>Navigation</ListSubheader>}>
+                  subheader={<ListSubheader>Menu</ListSubheader>}>
                   
+                <ListItem button onClick={this.props.userLogout}>Logout</ListItem>
+
+                <Divider /> 
                 <Link to="/">
                     <ListItem button>
                         <ListItemIcon><Dashboard/></ListItemIcon>
@@ -68,4 +75,4 @@ class NavList extends Component {
     }
 }
 
-export default withStyles(styles)(NavList);
+export default connect(null, { userLogout })(withStyles(styles)(NavList));

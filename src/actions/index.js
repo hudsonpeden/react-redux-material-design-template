@@ -5,7 +5,6 @@ export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export function userLogin() {
     return {
        type: LOGIN_SUCCESS, 
-       payload: true 
     }
 }
 
