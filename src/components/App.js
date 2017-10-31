@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import '../style/App.css';
-//import Menu from './menu/Menu';
 import Nav from './menu/Nav';
 import Login from './security/Login';
 
@@ -30,10 +29,8 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
-        {console.log(this.props.isAuthenticated)}
           {!this.props.isAuthenticated && <Login/>}
           {this.props.isAuthenticated && <Nav/>}
-          {this.props.children}
         </div>
       </MuiThemeProvider>
     );
